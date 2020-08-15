@@ -2,7 +2,7 @@ package ru.progwards.java1.lessons.basics;
 
 public class Astronomy {
     public static Double sphereSquare(Double r){
-        return 4*3.12*r*r;
+        return 4*3.14*r*r;
     }
     public static Double earthSquare(){
         return sphereSquare(6371.2);

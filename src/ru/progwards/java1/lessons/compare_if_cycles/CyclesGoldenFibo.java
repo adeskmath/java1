@@ -30,13 +30,17 @@ public class CyclesGoldenFibo {
      */
     public static boolean containsDigit(int number, int digit){
         boolean eXist=false;
-        while (number!=0){
-            if (number%10==digit) {
-                eXist=true;
-                break;
+        if (number==digit) eXist=true; else{
+            while (number!=0){
+                if (number%10==digit) {
+                    eXist=true;
+                    break;
+                }
+                number/=10;
+                //System.out.println("test "+number);
             }
-            number/=10;
         }
+
         return eXist;
     }
     public static int fiboNumber(int n){
@@ -71,6 +75,8 @@ public class CyclesGoldenFibo {
         System.out.println(containsDigit(14589087,0));
         System.out.println(containsDigit(14589087,8));
         System.out.println(containsDigit(14589087,3));
+        System.out.println(containsDigit(0,0));
+        System.out.println(0%10);
          */
         System.out.print("First 15 Fibonacci numbers: ");
         for (int i=1;i<=15;i++){

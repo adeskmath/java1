@@ -95,6 +95,14 @@ public class CyclesGoldenFibo {
                 }
             }
         }
+        System.out.println("!!!take into account that golden triangle is Isosceles Triangle - note from mentor");
+        // looking for golden triangles a,b,c sides <=100
+        for (int i=1;i<=100;i++){
+            for (int j=1;j<=100;j++){
+                if (isGoldenTriangle(i, j, i)) System.out.println("Golden Triangle: "+i + "-" + j + "-" + i+
+                            " edge="+TriangleSimpleInfo.maxSide(i,j,i)+" base="+TriangleSimpleInfo.minSide(i,j,i));
+            }
+        }
 
     }
 

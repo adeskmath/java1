@@ -157,7 +157,6 @@ class ComplexNum{
         /*
         make robot happy
          */
-
         // negative values of b is not required (see test numbers), but ...
         return b<0 ? a+""+b+"i" : a+"+"+b+"i";
 

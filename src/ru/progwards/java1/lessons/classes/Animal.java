@@ -138,9 +138,12 @@ class ComplexNum{
     }
     @Override
     public String toString(){
+        /*
+        хотел как лучше:
+        вместо 0+bi обычно пишут просто bi / Вместо a+0i обычно пишут просто a.
+        */
+        /*
         String  res;
-        //return a+"+"+b+"i";
-        // return b<0 ? a+""+b+"i" : a+"+"+b+"i";
         if (a==0 && b==0) {res="0";} else {
             if (a==0) { res = ""+b+"i";} else {
                 if (b==0) { res =""+a;} else {
@@ -150,6 +153,14 @@ class ComplexNum{
             }
         }
         return res;
+         */
+        /*
+        возвращаем простой простой вариант
+         */
+
+        // возможно и здесь не требовалось учитывать отрицательные значения
+        return b<0 ? a+""+b+"i" : a+"+"+b+"i";
+
     }
     public ComplexNum add(ComplexNum num){
         ComplexNum z = new ComplexNum(a,b);
@@ -179,6 +190,7 @@ class ComplexNum{
             z.a = (a * num.a + b * num.b) / (num.a * num.a + num.b * num.b);
             z.b = (b * num.a - a * num.b) / (num.a * num.a + num.b * num.b);
         }
+        // remember int a,b , so int/int=int
 
         return z;
     }
@@ -199,5 +211,6 @@ class ComplexNum{
         System.out.println(z6);
         System.out.println(z5.mul(z6));
         System.out.println(z1.div(z4));
+        System.out.println(z6.div(z3));
     }
 }

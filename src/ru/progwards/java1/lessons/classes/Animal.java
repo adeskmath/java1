@@ -139,8 +139,8 @@ class ComplexNum{
     @Override
     public String toString(){
         /*
-        хотел как лучше:
-        вместо 0+bi обычно пишут просто bi / Вместо a+0i обычно пишут просто a.
+        usually 0+bi write as bi / instead of a+0i - a.
+        but robot asks 0+bi / a+0i
         */
         /*
         String  res;
@@ -155,10 +155,10 @@ class ComplexNum{
         return res;
          */
         /*
-        возвращаем простой простой вариант
+        make robot happy
          */
 
-        // возможно и здесь не требовалось учитывать отрицательные значения
+        // negative values of b is not required (see test numbers), but ...
         return b<0 ? a+""+b+"i" : a+"+"+b+"i";
 
     }

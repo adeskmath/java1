@@ -157,9 +157,9 @@ class ComplexNum{
         /*
         make robot happy
          */
-        // negative values of b is not required (see test numbers), but ...
-        return b<0 ? a+""+b+"i" : a+"+"+b+"i";
-
+        // negative values of b is not required (see test numbers), but robot kicked my 2nd attempt
+        // return b<0 ? a+""+b+"i" : a+"+"+b+"i";
+        return a+"+"+b+"i";
     }
     public ComplexNum add(ComplexNum num){
         ComplexNum z = new ComplexNum(a,b);

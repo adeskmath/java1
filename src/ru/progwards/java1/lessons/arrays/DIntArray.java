@@ -3,7 +3,7 @@ package ru.progwards.java1.lessons.arrays;
 import java.util.Arrays;
 
 public class DIntArray {
-    private int [] objArray;
+    private int [] objArray = new int[1];
     //в условии - 3.2 конструктор - по умолчанию.
     // как робот найдет св-во - массив? (3.1 в классе разместить private переменную - массив целых чисел.)
     public DIntArray(){
@@ -25,17 +25,20 @@ public class DIntArray {
         int i=0;
         int j=0;
         int l = objArray.length;
-        int [] newArray = new int[l+1];
-        while (i<l+1){
-            if (i!=pos){
-                newArray[i]=objArray[j];
-                j++;
-            } else {
-                newArray[i]=num;
+        if(pos<l+1){
+            int [] newArray = new int[l+1];
+            while (i<l+1){
+                if (i!=pos){
+                    newArray[i]=objArray[j];
+                    j++;
+                } else {
+                    newArray[i]=num;
+                }
+                i++;
             }
-            i++;
-        }
-        objArray=newArray;
+            objArray=newArray;
+        } else System.out.println("can't insert : pos is out of index");
+
     }
 
     // probably can be optimized with less code
@@ -44,17 +47,20 @@ public class DIntArray {
         int j=0;
         int l = objArray.length;
         int [] newArray = new int[l-1];
-        while (i<l-1){
-            if (i!=pos){
-                newArray[i]=objArray[j];
-            } else {
+        if(l>1 && pos<l){
+            while (i<l-1){
+                if (i!=pos){
+                    newArray[i]=objArray[j];
+                } else {
+                    j++;
+                    newArray[i]=objArray[j];
+                }
+                i++;
                 j++;
-                newArray[i]=objArray[j];
             }
-            i++;
-            j++;
-        }
-        objArray=newArray;
+            objArray=newArray;
+        }else System.out.println("can't delete : pos is out of index or last element");
+
     }
     public int at(int pos){
         return objArray[pos];
@@ -62,8 +68,8 @@ public class DIntArray {
 
     public static void main(String[] args) {
         DIntArray b = new DIntArray();
-        b.objArray = new int[1];
-        b.objArray[0]=9;
+        //b.atInsert(2,1);
+        b.atDelete(1);
         System.out.println(Arrays.toString(b.objArray));
         b.add(5);
         System.out.println(Arrays.toString(b.objArray));

@@ -7,7 +7,9 @@ public class Eratosthenes {
     public Eratosthenes(int N){
         sieve = new boolean[N];
         Arrays.fill(sieve,true);
+        sift();
     }
+
     private void sift(){
         int i, j;
         int n = sieve.length;
@@ -29,10 +31,10 @@ public class Eratosthenes {
     }
 
     public static void main(String[] args) {
-        final int N1=100;
+        final int N1=30;
         Eratosthenes myArray = new Eratosthenes(N1);
-        myArray.sift();
-        System.out.println(myArray.isSimple(N1-1));
+      //  myArray.sift();
+        System.out.println(myArray.isSimple(4));
         int k;
         for (k=0;k<N1;k++){
             System.out.println("["+k+"]"+myArray.isSimple(k));

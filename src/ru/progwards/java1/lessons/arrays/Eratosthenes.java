@@ -7,7 +7,8 @@ public class Eratosthenes {
     public Eratosthenes(int N){
         sieve = new boolean[N];
         Arrays.fill(sieve,true);
-        sift();
+       // sift();
+        sift_mentor();
     }
 
     private void sift(){
@@ -25,6 +26,20 @@ public class Eratosthenes {
 
             }
         }
+    }
+    private void sift_mentor(){
+        int i, j;
+        int n = sieve.length;
+        for (i=2;i<n;i++){
+            // if false (not simple) take next number
+            if (!sieve[i]) {
+                continue;
+            }
+            for (j = i*2; j <= sieve.length - 1; j += i)
+                    sieve[j] = false;
+
+
+            }
     }
     public boolean isSimple(int n){
         return sieve[n];

@@ -22,16 +22,14 @@ public class CalculateFibonacci {
     public static int fiboNumber(int n){
         int fidoN=0;
         int f0=0, f1=1;
-
-        if (lastFibo !=null && n== lastFibo.n) return lastFibo.fibo;
+        if (lastFibo ==null) lastFibo = new CacheInfo();
+        if (n== lastFibo.n) return lastFibo.fibo;
         if (n>1) for (int i=1;i<n;i++){
             fidoN=f0+f1;
             f0=f1;
             f1=fidoN;
         } else if (n==1) fidoN=1; // в задаче условие: ряд ЧФ начинается с 1 (не с 0)
         System.out.println("new n= "+n);
-
-
         lastFibo.n=n;
         lastFibo.fibo=fidoN;
         return fidoN;
@@ -63,10 +61,11 @@ public class CalculateFibonacci {
         System.out.println("---------------------");
 
         CalculateFibonacci.clearLastFibo();
-        //System.out.println(lastFibo);
+        System.out.println(lastFibo);
+
         //System.out.println(lastFibo.fibo);
         //System.out.println("---------------------");
-
+        System.out.println(fiboNumber(10));
         //System.out.println(lastFibo.n+"-"+ lastFibo.fibo);
 
     }

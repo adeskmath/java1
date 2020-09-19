@@ -56,22 +56,21 @@ public class Animal implements FoodCompare, CompareWeight {
     /* ----------------------H8 ------------------------------------------------------
     Задача 1. Классы Animal, Cow, Hamster, Duck
     1.1 Для класса Animal из задач 1 и 2, домашнего задания к уроку 5 реализовать метод:
-public boolean equals(Object anObject), который возвращает true, если объекты равны
-и false если не равны по параметру - вес животного.
+    public boolean equals(Object anObject), который возвращает true, если объекты равны
+    и false если не равны по параметру - вес животного.
 
-Убедится, что при равном весе, утка все равно не равна хомяку.
+    Убедится, что при равном весе, утка все равно не равна хомяку.
 
-Обратите внимание на тип принимаемого параметра и подумайте над тем, что будет делать ваша программа,
-если в качестве параметра будет передан объект не являющийся экземпляром Animal.
+    Обратите внимание на тип принимаемого параметра и подумайте над тем, что будет делать ваша программа,
+    если в качестве параметра будет передан объект не являющийся экземпляром Animal.
 
-Для класса Animal реализовать интерфейс FoodCompare, который сравнивает животных по цене потребляемой еды.
-public interface FoodCompare {
+    Для класса Animal реализовать интерфейс FoodCompare, который сравнивает животных по цене потребляемой еды.
+    public interface FoodCompare {
     public int compareFoodPrice();
-}
+    }
      */
 
     // Easy automatic generation of equals (alt+ins) or menu/code/generate - intellijidea
-/*
 
     @Override
     public boolean equals(Object o) {
@@ -82,31 +81,26 @@ public interface FoodCompare {
         //replace by
         return animal.weight == weight;
     }
- */
+
+    //alternative way
+    /*
     @Override
     public boolean equals(Object anObject){
         //let's challenge the robot, try alternative
-        return this == anObject || ((anObject != null) && (this.weight == ((Animal) anObject).weight) && (this.getClass() == anObject.getClass()));
-
-        //let's say duck is animal in real world not in Java
-        //return  this == anObject || ((anObject!=null) && (this.weight==((Animal)anObject).weight) &&
-        // ((this.getClass()==anObject.getClass())||this.getClass()==Animal.class||anObject.getClass()==Animal.class)));
-
-
-
+        return this == anObject || ((anObject != null) && (this.getClass() == anObject.getClass()) && (this.weight == ((Animal) anObject).weight));
     }
-
+    */
 
 
 
     /* TASKS for H8 --------------- H8 ------------- H8 ---------------------- H8 --------------------------
-        1.2 В класс Animal добавить метод
-        public double getFood1kgPrice(), который возвращает информацию о цене 1 кг еды.
-        метод реализовать в виде switch по FoodKind со следующими значениями
-        HAY : 20
-        CORN: 50
-        UNKNOWN: 0
-         */
+            1.2 В класс Animal добавить метод
+            public double getFood1kgPrice(), который возвращает информацию о цене 1 кг еды.
+            метод реализовать в виде switch по FoodKind со следующими значениями
+            HAY : 20
+            CORN: 50
+            UNKNOWN: 0
+             */
     public double getFood1kgPrice(){
         switch (getFoodKind()){
             case HAY:
@@ -150,10 +144,7 @@ public interface FoodCompare {
     @Override
     public CompareResult compareWeight(CompareWeight smthHasWeigt) {
 
-      //  Animal a = (Animal) smthHasWeigt;
-
-
-        switch (Double.compare(getWeight(), ((Animal) smthHasWeigt).getWeight())){
+         switch (Double.compare(getWeight(), ((Animal) smthHasWeigt).getWeight())){
             case -1:
                 return CompareResult.LESS;
 
@@ -166,10 +157,9 @@ public interface FoodCompare {
     }
     //--------------------------------- end of H8 -----------------------------------------------
 }
-
 //Cow *****
-class Cow extends Animal{
 
+class Cow extends Animal{
     public Cow (double weight){
         super(weight);
 
@@ -215,6 +205,9 @@ class Cow extends Animal{
         System.out.println(animal.getFood1kgPrice()+" - cost per 1 kg of food");
         System.out.println(animal.getFoodPrice()+" - cost of food for this animal");
         Animal animal2 = new Animal( 77);
+
+        //exception
+        System.out.println("compare with not animal : "+animal.equals("animal2"));
 
         System.out.println(animal.equals(animal2)+" - result "+animal.getKind()+"s : "+animal.getWeight()+" Vs "+animal2.getWeight());
 

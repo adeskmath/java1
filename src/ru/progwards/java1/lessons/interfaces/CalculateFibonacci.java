@@ -6,14 +6,18 @@ public class CalculateFibonacci {
         public int n;
         public int fibo;
 
-        public static CacheInfo getLastFibo(){
-            return lastFibo;
-        }
-        public static void clearLastFibo(){
-            lastFibo =null;
-        }
+
     }
+    public static CacheInfo getLastFibo(){
+        return lastFibo;
+    }
+    public static void clearLastFibo(){
+        lastFibo =null;
+    }
+
     private static CacheInfo lastFibo = new CacheInfo();
+
+
 
     public static int fiboNumber(int n){
         int fidoN=0;
@@ -55,10 +59,10 @@ public class CalculateFibonacci {
         System.out.println(lastFibo.n+"-"+ lastFibo.fibo);
         System.out.println("---------getLastFibo------------");
 
-        System.out.println(CacheInfo.getLastFibo().n+"-"+CacheInfo.getLastFibo().fibo);
+        System.out.println(CalculateFibonacci.getLastFibo().n+"-"+CalculateFibonacci.getLastFibo().fibo);
         System.out.println("---------------------");
 
-        CacheInfo.clearLastFibo();
+        CalculateFibonacci.clearLastFibo();
         //System.out.println(lastFibo);
         //System.out.println(lastFibo.fibo);
         //System.out.println("---------------------");

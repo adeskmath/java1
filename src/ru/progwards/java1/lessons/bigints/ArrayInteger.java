@@ -61,13 +61,21 @@ public class ArrayInteger {
     }
 
     boolean add(ArrayInteger num){
-        long value=0;
         byte plus=0;
-        if (this.digits.length<num.digits.length) return false;
-        long l = this.digits.length;
-        for (int i = 0; i < l; i++) {
-
-            this.digits[i] = (byte) (this.digits[i]+num.digits[i]+plus);
+        long l1 = this.digits.length;
+        long l2 = num.digits.length;
+        if (l1<l2) {
+            System.out.println("this < next");
+            this.zeroArrayInteger();
+            return false;
+        }
+        System.out.println("-------------"+l1);
+        for (int i = 0; i < l1; i++) {
+            if (i<l2){
+                this.digits[i] = (byte) (this.digits[i]+num.digits[i]+plus);
+            } else {
+                this.digits[i] += plus;
+            }
             plus = (byte) (this.digits[i]/10);
             if (plus>0) this.digits[i]-=10;
 
@@ -94,8 +102,8 @@ public class ArrayInteger {
 class testArrayInteger{
     public static void main(String[] args) {
 
-        BigInteger a = new BigInteger("123456");
-        BigInteger b = new BigInteger("110101");
+        BigInteger a = new BigInteger("12345");
+        BigInteger b = new BigInteger("232");
         System.out.println("a="+a);
         System.out.println("b="+b);
 

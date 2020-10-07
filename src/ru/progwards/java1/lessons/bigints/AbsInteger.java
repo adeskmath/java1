@@ -42,9 +42,10 @@ class AbsInteger{
     }
     @Override
     public String toString() {
-        return "AbsInteger{" +
-                "num=" + num +
-                '}';
+//        return "AbsInteger{" +
+//                "num=" + num +
+//                '}';
+        return String.valueOf(num);
     }
 }
 
@@ -57,9 +58,10 @@ class ByteInteger extends AbsInteger{
 
     @Override
     public String toString() {
-        return "ByteInteger{" +
-                "num=" + num +
-                '}';
+//        return "ByteInteger{" +
+//                "num=" + num +
+//                '}';
+        return String.valueOf(num);
         }
 
 }
@@ -73,9 +75,10 @@ class ShortInteger extends AbsInteger{
 
     @Override
     public String toString() {
-        return "ShortInteger{" +
-                "num=" + num +
-                '}';
+//        return "ShortInteger{" +
+//                "num=" + num +
+//                '}';
+        return String.valueOf(num);
     }
 }
 
@@ -87,9 +90,10 @@ class IntInteger extends AbsInteger{
     }
     @Override
     public String toString() {
-        return "IntInteger{" +
-                "num=" + num +
-                '}';
+//        return "IntInteger{" +
+//                "num=" + num +
+//                '}';
+        return String.valueOf(num);
     }
 }
 class test{
@@ -99,6 +103,8 @@ class test{
         ShortInteger b = new ShortInteger((short)32000);
         IntInteger c = new IntInteger(1000000);
         AbsInteger d = new AbsInteger(9223372036854775807L);
+
+        System.out.println("test "+a);
 
         System.out.println(AbsInteger.add(a,a1));
         System.out.println(AbsInteger.add(a,b));

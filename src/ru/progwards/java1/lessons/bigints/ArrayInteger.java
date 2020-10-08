@@ -35,14 +35,17 @@ public class ArrayInteger {
     ArrayInteger(int n) {
         digits = new byte[n];
     }
-
+/*
+ERROR: Тест "Метод toInt()" не пройден.
+Метод возвращает неверное значение, либо метод fromInt(BigInteger value) работает неправильно.
+Передан параметр BigInteger:  1048576. Возвращено значение: 0. Ожидалось: 1048576.
+*/
     void fromInt(BigInteger value) {
         int aLength = digits.length;
         if (aLength!=lengthBigInteger(value)) {
             System.out.println("oops");
             return;
         }
-//        System.out.println(aLength);
 
         for (int i = 0; i < aLength; i++) {
             digits[i] = value.mod(BigInteger.TEN).byteValue();
@@ -99,11 +102,20 @@ public class ArrayInteger {
         return digits;
     }
 }
-class testArrayInteger{
+class test2{
     public static void main(String[] args) {
 
         BigInteger a = new BigInteger("12345");
         BigInteger b = new BigInteger("232");
+        BigInteger aaaa = new BigInteger("10485761");
+ /* интересное совпадение в моем тесте и тесте робота: 1048576
+ возможно дело в навании class testArrayInteger? генерир авто? изменил на test2
+ERROR: Тест "Метод toInt()" не пройден.
+Метод возвращает неверное значение, либо метод fromInt(BigInteger value) работает неправильно.
+Передан параметр BigInteger:  1048576. Возвращено значение: 0. Ожидалось: 1048576.
+*/
+
+
         System.out.println("a="+a);
         System.out.println("b="+b);
 
@@ -111,8 +123,13 @@ class testArrayInteger{
 
         ArrayInteger c = new ArrayInteger(ArrayInteger.lengthBigInteger(a));
         ArrayInteger d = new ArrayInteger(ArrayInteger.lengthBigInteger(b));
+        ArrayInteger dddd = new ArrayInteger(ArrayInteger.lengthBigInteger(aaaa));
 //        System.out.println("a->"+c);
 //        System.out.println("b->"+d);
+        dddd.fromInt(aaaa);
+        System.out.println(dddd);
+        System.out.println(dddd.toInt());
+        System.out.println("--------------");
         c.fromInt(a);
         d.fromInt(b);
         System.out.println("a->"+c);

@@ -39,7 +39,7 @@ public class Coder {
             } catch (IOException e) {
                 throw new RuntimeException(e.getMessage());
             }
-        } catch (IOException e){
+        } catch (Exception e){
             try {
                 FileWriter logFile = new FileWriter(logName);
                 logFile.write(e.getMessage());
@@ -51,52 +51,7 @@ public class Coder {
 //================================================================================
     }
 
-//scanner не подходит (считывает построчно)
-/*    public static void codeFile(String inFileName, String outFileName, char[] code, String logName){
-        String s;
-        char[] chars;
-        try {
-            FileWriter writer = new FileWriter(outFileName);
-            FileReader reader = new FileReader(inFileName);
-            Scanner scanner = new Scanner(reader);
-            while (scanner.hasNextLine()) {
-                String strFromFile = scanner.nextLine();
-                chars = strFromFile.toCharArray();
-//                System.out.println("--"+strFromFile.length());
-                s = "";
-                for (int i=0;i<strFromFile.length();i++){
-                    //just to test:
-//                    s += code[(int)chars[i]-100];
-                    //H10:
-                    s += code[(int)chars[i]];
-                    //try simple first:
-//                    s += chars[i];
-//                    System.out.println(i);
-                }
 
-                writer.write(s+"\n");
-                // test, write to writer:
-//                System.out.println(s);
-
-            }
-            reader.close();
-            writer.close();
-        } catch(IOException e){
-            try {
-                FileWriter logFile = new FileWriter(logName);
-                logFile.write(e.getMessage());
-//                logFile.write("error in file");
-                System.out.println("try : "+e.getMessage());
-                //doesn't work w/o close()
-                logFile.close();
-            } catch (IOException ioException) {
-                System.out.println("catch : ioException");
-                throw new RuntimeException(" throw new");
-
-            }
-
-        }
-    }*/
 
     public static void main(String[] args) {
 // to test with code[(char)i-100];
